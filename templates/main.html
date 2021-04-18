@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">    </head>
+    <body>
+    <h1>Quiz Template</h1>
+    <form action='/quiz' method='POST'>
+        <ol>
+            {% for i in q %}
+                <div class="blue-left div-bg">
+                <p class="question">{{i}}</p>
+                {% for j in o[i] %}
+                    <div class="answer"><input type='radio' value="{{j}}" name='{{i}}' />{{j}}<br></div>
+                {% endfor %}
+                </div>
+            {% endfor %}
+        </ol>
+        <input type="submit"/>
+        <input type="reset"/>
+    </form>
+    </body>
+</html>
